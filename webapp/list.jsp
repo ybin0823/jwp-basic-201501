@@ -9,7 +9,7 @@
 <body>
     <div id="header">
         <div id="title">
-            <h2><a href="/api/list.next">Java Web Programming 실습</a></h2>
+            <h2><a href="/list.next">Java Web Programming 실습</a></h2>
         </div>
     </div>
      

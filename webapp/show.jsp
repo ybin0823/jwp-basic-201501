@@ -8,7 +8,7 @@
 <body>
     <div id="header">
         <div id="title">
-            <h2><a href="/api/list.next">Java Web Programming 실습</a></h2>
+            <h2><a href="/list.next">Java Web Programming 실습</a></h2>
         </div>
     </div>
      
@@ -27,7 +27,7 @@
 	    </div>
 	</div>    
 
-  	<br /> <a href="/api/list.next">목록으로</a>
+  	<br /> <a href="/list.next">목록으로</a>
   	
 	<h3>답변</h3>
 	<div class="answerWrite">
