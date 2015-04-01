@@ -15,5 +15,5 @@
 * Tomcat에는 요청에 따라 HttpServlet 클래스에 doGet()과 doPost()에 따라 요청을 처리할 수 있다. 프로젝트의 경우에는 index.jsp를 호출하면 sendRedirect("link.jsp");를 호출하기 때문에 doGet() 메소드를 호출하여 link.jsp를 클라이언트에게 전송해준다.
 
 #### 8. ListController와 ShowController가 멀티 쓰레드 상황에서 문제가 발생하는 이유에 대해 설명하라.
-* 
+* execute() 메소드 위에 선언된 자원들은 멀티쓰레드 환경에서 공유를 하게 된다. answer과 question 같은 경우는 클라이언트마다 DAO를 사용하여 요청해서 받는 결과 값이 다를 수 있다. 따라서 이 부분은 각 쓰레드마다 할당이 되게 해서 자원이 중보되는 현상이 없어야한다. DAO 같은 경우는 상태 값을 바꾸는 로직이 없기 때문에 클라이언트가 공유해서 사용해도 된다.
 

@@ -1,6 +1,6 @@
 package next.dao;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import core.jdbc.ConnectionManager;
 
 public class QuestionDaoTest {
+	Question expected = new Question("자바지기", "title", "contents");
 	@Before
 	public void setup() {
 		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
@@ -24,11 +25,19 @@ public class QuestionDaoTest {
 
 	@Test
 	public void crud() throws Exception {
-		Question expected = new Question("자바지기", "title", "contents");
 		QuestionDao dut = new QuestionDao();
 		dut.insert(expected);
 		
 		List<Question> questions = dut.findAll();
 		assertTrue(questions.size() > 0);
+	}
+	
+	@Test
+	public void update() throws Exception {
+		QuestionDao dut = new QuestionDao();
+		int countOfComment = expected.getCountOfComment();
+		dut.update(expected.getQuestionId());
+		assertEquals(countOfComment + 1, expected.getCountOfComment());
+		
 	}
 }
