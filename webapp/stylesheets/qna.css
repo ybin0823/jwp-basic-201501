@@ -254,6 +254,10 @@ h3 span {
 	left: -4px;
 }
 
+.comment .comment-delete {
+	float: right;
+}
+
 /** Form **/
 
 form {
