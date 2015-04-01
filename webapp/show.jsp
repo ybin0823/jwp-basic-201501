@@ -53,7 +53,7 @@
 	        댓글 수 : ${question.countOfComment}
 	    </h3>
 	    <c:forEach  var="answer" items="${answers}">
-	        <div class="comment">
+	        <div id="${answer.answerId}" class="comment">
 	            <div class="comment-metadata">
 	                <span class="comment-author">${answer.writer}</span>
 	                <span class="comment-date">
@@ -65,13 +65,12 @@
 	                ${answer.contents}
 	            </div>
 	            <div class="comment-delete">
-	            	<a href="#">삭제</a>
+	            	<a href="#" onclick="deleteAnswer(${answer.answerId}, ${question.questionId});">삭제</a>
 	            </div>
 	        </div>	    
 	    </c:forEach>
 	</div>
 	<!-- comments end -->
-	
     </div>
     <%@ include file="/include/footer.jspf"%>
 </body>

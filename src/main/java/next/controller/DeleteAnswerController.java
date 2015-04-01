@@ -15,12 +15,12 @@ public class DeleteAnswerController extends AbstractController implements Contro
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		long answerId = ServletRequestUtils.getLongParameter(request, "answerId");
+		long questionId = ServletRequestUtils.getLongParameter(request, "questionId");
 		
-		answerDao.delete(answerId);
+		answerDao.delete(answerId, questionId);
 		
-		ModelAndView mav = jstlView("redirect:/api/list.next");
-		
+		ModelAndView mav = jstlView("redirect:/list.next");
+
 		return mav;
 	}
-
 }

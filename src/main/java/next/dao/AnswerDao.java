@@ -51,10 +51,14 @@ public class AnswerDao {
 		return jdbcTemplate.query(sql, rm, questionId);
 	}
 
-	public void delete(long answerId) {
+	public void delete(long answerId, long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
-		String sql = "DELETE FROM ANSWER WHERE answerId = ?";
 		
+		String sql = "DELETE FROM ANSWERS WHERE answerId = ?";
 		jdbcTemplate.update(sql, answerId);
+		
+		sql = "UPDATE QUESTIONS SET countOfComment = countOfComment - 1 WHERE questionId = ?";
+		jdbcTemplate.update(sql, questionId);
+		
 	}
 }

@@ -79,7 +79,7 @@ public class QuestionDao {
 
 	public void delete(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
-		String sql = "DELETE FROM QUESTION WHERE questionId = ?";
+		String sql = "DELETE FROM QUESTIONS WHERE questionId = ?";
 		
 		jdbcTemplate.update(sql, questionId);
 	}

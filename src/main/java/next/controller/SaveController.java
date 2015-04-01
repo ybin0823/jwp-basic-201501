@@ -22,7 +22,7 @@ public class SaveController extends AbstractController {
 		question = new Question(writer, title, contents);
 		questionDao.insert(question);
 		
-		ModelAndView mav = jstlView("redirect:/list.next");
+		ModelAndView mav = jsonView();
 		return mav;
 	}
 

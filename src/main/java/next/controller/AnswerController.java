@@ -14,7 +14,7 @@ import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
 public class AnswerController extends AbstractController {
-	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AnswerController.class);
 	
 	private AnswerDao answerDao = AnswerDao.getInstance();
 	private Answer answer;
@@ -30,7 +30,7 @@ public class AnswerController extends AbstractController {
 		answerDao.insert(answer);
 		questionDao.update(questionId);
 		
-		ModelAndView mav = jstlView("/show.jsp");
+		ModelAndView mav = jsonView();
 
 		return mav;
 	}

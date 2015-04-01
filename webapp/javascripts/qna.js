@@ -22,3 +22,32 @@ function writeAnswers(e) {
 	 
 	 request.send(params);
 }
+
+function deleteAnswer(answerId, questionId) {
+	 var url = "/api/deleteanswer.next";
+	 var params = "answerId=" + answerId + "&questionId=" + questionId;
+
+	 var request = new XMLHttpRequest();
+	 request.open("POST", url, true);
+	 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	 
+	 request.onreadystatechange = function() {
+		 if(request.readyState == 4 && request.status == 200) {
+			 var el = document.getElementById(answerId);
+			 el.remove();
+		 }
+	 }
+	 
+	 request.send(params);
+}
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for(var i = 0, len = this.length; i < len; i++) {
+        if(this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}

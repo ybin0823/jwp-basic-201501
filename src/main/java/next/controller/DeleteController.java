@@ -13,7 +13,7 @@ import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
 public class DeleteController extends AbstractController {
-	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+	private static final Logger logger = LoggerFactory.getLogger(DeleteController.class);
 	
 	private QuestionDao questionDao = QuestionDao.getInstance();
 	
