@@ -25,7 +25,7 @@ public class QuestionDaoTest {
 
 	@Test
 	public void crud() throws Exception {
-		QuestionDao dut = new QuestionDao();
+		QuestionDao dut = QuestionDao.getInstance();
 		dut.insert(expected);
 		
 		List<Question> questions = dut.findAll();
@@ -34,7 +34,7 @@ public class QuestionDaoTest {
 	
 	@Test
 	public void update() throws Exception {
-		QuestionDao dut = new QuestionDao();
+		QuestionDao dut = QuestionDao.getInstance();
 		int countOfComment = expected.getCountOfComment();
 		dut.update(expected.getQuestionId());
 		assertEquals(countOfComment + 1, expected.getCountOfComment());

@@ -16,9 +16,9 @@ import core.utils.ServletRequestUtils;
 public class AnswerController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	
-	private AnswerDao answerDao = new AnswerDao();
+	private AnswerDao answerDao = AnswerDao.getInstance();
 	private Answer answer;
-	private QuestionDao questionDao = new QuestionDao();
+	private QuestionDao questionDao = QuestionDao.getInstance();
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -10,6 +10,17 @@ import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
 
 public class AnswerDao {
+	private static AnswerDao answerDao = null;
+	
+	private AnswerDao() {};
+	
+	public static AnswerDao getInstance() {
+		if(answerDao == null) {
+			answerDao = new AnswerDao();
+		}
+		
+		return answerDao;
+	}
 
 	public void insert(Answer answer) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
